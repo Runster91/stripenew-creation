@@ -5,6 +5,7 @@ import cors from "cors"
 import dotenv from "dotenv"
 // B. ARCHIVOS
 import userRoute from "./routes/users.js"
+import priceRoute from "./routes/prices.js"
 
 // 2. INICIALIZADORES
 const app = express()
@@ -17,6 +18,7 @@ dotenv.config()
 // PROD: https://midominio.com/
 // DEV: localhost:3005/
 app.use("/api/v1/users", userRoute)
+app.use("/api/v1/prices", priceRoute)
 
 // 4. LEVANTAMIENTO DEL SERVIDOR
 app.listen(process.env.BASE_URL_PORT, () =>

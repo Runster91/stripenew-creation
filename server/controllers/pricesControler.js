@@ -2,12 +2,12 @@ let data = [
     {
       id: 1,
       modelo: "Tiguan",
-      precio: 350000
+      precio: 350000,
     },
     {
       id: 2,
       modelo: "Taos",
-      percio: 270000
+      percio: 270000,
     },
   ]
   
