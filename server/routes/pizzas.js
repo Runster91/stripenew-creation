@@ -26,4 +26,16 @@ router.get("/readone/:id", pizzasController.readOne)
 
  
 
+// D. ACTUALIZAR UNA PIZZA ESPECÍFICA
+
+router.put("/updateone/:id", pizzasController.edit)
+
+ 
+
+// E. BORRAR UNA PIZZA ESPECÍFICA
+
+router.delete("/deleteone/:id", pizzasController.deleteOne)
+
+ 
+
 export default router

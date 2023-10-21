@@ -102,11 +102,114 @@ const create = async (req, res) => {
 
  
 
-    res.json({
+    return res.json({
 
       msg: "Pizza creada",
 
       data: newPizza,
+
+    })
+
+  } catch (error) {
+
+    console.log(error)
+
+    res.status(500).json({
+
+      msg: "Hubo un error obteniendo los datos.",
+
+    })
+
+  }
+
+}
+
+ 
+
+const edit = async (req, res) => {
+
+  const { id } = req.params
+
+ 
+
+  const { name } = req.body
+
+ 
+
+  try {
+
+    const updatedPizza = await Pizza.findByIdAndUpdate(
+
+      id,
+
+      {
+
+        name,
+
+      },
+
+      { new: true }
+
+    )
+
+ 
+
+    return res.json({
+
+      msg: "Pizza actualizada con éxito",
+
+      data: updatedPizza,
+
+    })
+
+  } catch (error) {
+
+    console.log(error)
+
+    res.status(500).json({
+
+      msg: "Hubo un error obteniendo los datos.",
+
+    })
+
+  }
+
+}
+
+ 
+const deleteOne = async (req, res) => {
+
+  const { id } = req.params
+
+ 
+
+  try {
+
+    const deletedPizza = await Pizza.findByIdAndRemove({
+
+      _id: id,
+
+    })
+
+ 
+
+    if (deletedPizza === null) {
+
+      return res.json({
+
+        msg: "Pizza no existe o ya fue borrada con anterioridad",
+
+      })
+
+    }
+
+ 
+
+    return res.json({
+
+      msg: "Pizza borrada exitosamente.",
+
+      data: deletedPizza,
 
     })
 
@@ -133,5 +236,9 @@ export default {
   create,
 
   readOne,
+
+  edit,
+
+  deleteOne,
 
 }
