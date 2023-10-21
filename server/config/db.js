@@ -10,7 +10,7 @@ const connectDB = async () => {
 
     // PROD: mongodb+srv://mikenieva:<password>@pizzeria-db.ewakicu.mongodb.net/
 
-    await mongoose.connect("mongodb+srv://Runster:dZn8h4Me6fSL5NST@cluster0.8oqiqpp.mongodb.net/?retryWrites=true&w=majority", {
+    await mongoose.connect(process.env.BASE_URL_DB_PRODUCTION, {
 
       useNewUrlParser: true,
 
