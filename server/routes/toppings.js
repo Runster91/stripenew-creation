@@ -7,6 +7,7 @@ const router = express.Router()
 router.get("/", toppingsController.readAll)
  
 // B. CREAR UN TOPPING
+router.post("/create", toppingsController.create)
  
 // C. OBTENER UN TOPPING ESPECÍFICO
  

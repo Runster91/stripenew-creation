@@ -7,6 +7,11 @@ import usersController from "./../controllers/usersController.js"
 // 2. INICIALIZADORES
 const router = express.Router()
 
+router.get("/", usersController.readAll)
+
+router.post("/create", usersController.create)
+
+
 // 3. CONTROLADORES
 
 /**

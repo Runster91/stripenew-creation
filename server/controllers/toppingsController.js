@@ -14,6 +14,9 @@ export const readAll = async (req, res) => {
     })
   } catch (error) {
     console.log("error", error)
+    res.status(500).json({
+      msg: "Hubo un error obteniendo los datos.",
+    })
   }
 }
  
@@ -35,6 +38,9 @@ export const create = async (req, res) => {
     })
   } catch (error) {
     console.log("error", error)
+    res.status(500).json({
+      msg: "Hubo un error generando los datos.",
+    })
   }
 }
  
