@@ -1,8 +1,6 @@
-// CART.JS
-// CARRITO DE COMPRAS
- 
+
 import mongoose from "mongoose"
- 
+
 const cartSchema = mongoose.Schema({
   products: [
     {
@@ -38,8 +36,8 @@ const cartSchema = mongoose.Schema({
     },
   ],
 })
- 
+
 const Cart = mongoose.model("Cart", cartSchema)
- 
+
 export default Cart
  
