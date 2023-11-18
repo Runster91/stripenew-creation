@@ -1,41 +1,59 @@
-import express from "express"
 
-import pizzasController from "./../controllers/pizzasController.js"
-
+// 1. IMPORTACIÓN
+import mongoose from "mongoose"
  
-
-const router = express.Router()
-
+// 2. SCHEMA
+const pizzaSchema = mongoose.Schema({
+  idStripe: {
+    type: String,
+    required: true,
+  },
+  name: {
+    type: String,
+    required: true,
+  },
+  currency: {
+    type: String,
+    required: true,
+  },
+  prices: [
+    {
+      id: {
+        type: String,
+        required: true,
+      },
+      size: {
+        type: String,
+        required: true,
+      },
+      price: {
+        type: Number,
+        required: true,
+      },
+      priceDescription: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
+  img: {
+    type: Array,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  slug: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+})
  
-
-// A. OBTENER TODAS LAS PIZZAS
-
-router.get("/", pizzasController.readAll)
-
+// 3. MODELO
+const Pizza = mongoose.model("Pizza", pizzaSchema)
  
-
-// B. CREAR UNA PIZZA
-
-router.post("/create", pizzasController.create)
-
+// 4. EXPORTACIÓN
+export default Pizza
  
-
-// C. OBTENER UNA PIZZA ESPECÍFICA
-
-router.get("/readone/:id", pizzasController.readOne)
-
- 
-
-// D. ACTUALIZAR UNA PIZZA ESPECÍFICA
-
-router.put("/updateone/:id", pizzasController.edit)
-
- 
-
-// E. BORRAR UNA PIZZA ESPECÍFICA
-
-router.delete("/deleteone/:id", pizzasController.deleteOne)
-
- 
-
-export default router
